@@ -422,11 +422,19 @@ app.get("/api/user/claims/:username", async (req, res) => {
   }
 });
 
+/* ===================== SERVE FRONTEND ===================== */
+
+const path = require("path");
+
+app.use(express.static(path.join(__dirname, "frontend")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "index.html"));
+});
+
 /* ===================== START SERVER ===================== */
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
   console.log(`Backend running on port ${PORT}`);
 });
-
-
