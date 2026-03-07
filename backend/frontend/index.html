@@ -41,8 +41,10 @@
 
   <!-- Main Content -->
   <main>
-    <div class="container">
-      <section class="home">
+
+    <section class="home-container">
+
+      <div class="home">
         
         <h2>
           <span class="home-title">Welcome to the</span>
@@ -50,7 +52,10 @@
         </h2>
 
         <p class="home-subtitle">
-          Lost something? Found something? Use this site to report found items, search for belongings, or claim what’s yours.
+          Every year, students misplace water bottles, hoodies, phones, calculators, and other important belongings. 
+          Our School Lost and Found website makes it easy to reconnect students with their items quickly and securely.
+          Whether you’ve found something or lost something, this platform allows you to report items, search listings,
+          and submit claims — all in one place.
         </p>
 
         <div class="home-buttons">
@@ -58,11 +63,71 @@
           <a href="items.html" class="home-btn">Search for an Item</a>
         </div>
 
-        <h2 class="home-title ">Recently Added Items</h2>
-        <div id="recent-items" class="item-grid"></div>
+        <div class="scroll-indicator">↓ Scroll to View Items ↓</div>
+
+      </div>
+    </section>
+
+    <div class="container recent-container fade-section">
+
+      <h2 class="section-title">Recently Added Items</h2>
+      <div id="recent-items" class="item-grid"></div>
+
+    </div>
+
+
+    <div class="container faq-container fade-section">
+
+      <section class="faq-section">
+
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I report a found item?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Click "Report an Item" on the home page and fill out the form. An administrator will review and approve the listing before it appears publicly.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I claim an item?
+            <span class="faq-arrow">▼</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>Find your item on the search page, click "Claim", and complete the verification form. Staff will review your claim before approval.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Why can't I see my uploaded item?
+            <span class="faq-arrow">▼</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>All items must be approved by school administrators first to prevent spam or incorrect claims. Approval may take some time.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What happens after my claim is approved?
+            <span class="faq-arrow">▼</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>You will be contacted by staff with instructions on where and when to retrieve your item from the school's lost and found office.</p>
+          </div>
+        </div>
+
       </section>
 
-      <section class="home1">
+            <section class="home1">
         <p class="home-title-1">
           Log into your account by clicking at the user button in the Navigation Menu or
           <a href="login.html" class="link1">Click Here to Login.</a>
@@ -83,6 +148,8 @@
     </div>
 
   </main>
+
+  <button id="backToTop" title="Go to top">Back to the top ↑</button>
 
   <footer>
     <p class="fake-copy">© 2025–2026 FBLA Website Coding & Development Project | Alliance Academy of Innovation</p>
