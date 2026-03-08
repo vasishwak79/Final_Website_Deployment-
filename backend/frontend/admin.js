@@ -79,8 +79,8 @@ async function fetchPending() {
     const headers = { Authorization: `Bearer ${token}` };
 
     const [resItems, resClaims] = await Promise.all([
-      fetch("http://localhost:4000/api/pending", { headers }),
-      fetch("http://localhost:4000/api/claims/pending", { headers })
+      fetch("/api/pending", { headers }),
+      fetch("/api/claims/pending", { headers })
     ]);
 
     if (!resItems.ok || !resClaims.ok) throw new Error("Failed to fetch data");
@@ -104,7 +104,7 @@ async function fetchPending() {
           <p><strong>Location:</strong> ${item.location}</p>
           <p>Catgory: ${item.category}</p>
           <small>Found on: ${item.dateFound}</small><br> </div>
-          ${item.photo ? `<img src="http://localhost:4000${item.photo}" alt="${item.title}" />` : ""}
+          ${item.photo ? `<img src="${item.photo}" alt="${item.title}" />` : ""}
           <div class="action-buttons">
             <button class="approve-btn" onclick="approveItem(${item.id})">Approve</button>
             <button class="deny-btn" onclick="declineItem(${item.id})">Decline</button>
@@ -123,7 +123,7 @@ async function fetchPending() {
         div.className = "claim-card";
         div.innerHTML = `
             <h3>Claim for: ${claim.item_title || "Unknown Item"}</h3>
-            ${claim.item_photo ? `<img src="http://localhost:4000${claim.item_photo}" alt="Item" />` : "<p><em>No Image Available</em></p>"}
+            ${claim.item_photo ? `<img src="${claim.item_photo}" alt="Item" />` : "<p><em>No Image Available</em></p>"}
             <p><strong>Claimed By:</strong> ${claim.name}</p>
             <p><strong>Reason:</strong> ${claim.reason}</p>
             <p><strong>Teacher:</strong> ${claim.teacher}</p>
@@ -148,7 +148,7 @@ async function fetchPending() {
 
 async function approveItem(id) {
   try {
-    const res = await fetch(`http://localhost:4000/api/approve/${id}`, {
+    const res = await fetch(`/api/approve/${id}`, {
       method: "PUT",
       headers: { Authorization: `Bearer ${token}` }
     });
@@ -163,7 +163,7 @@ async function approveItem(id) {
 async function declineItem(id) {
   if(!confirm("Are you sure you want to delete this item?")) return;
   try {
-    const res = await fetch(`http://localhost:4000/api/decline/${id}`, {
+    const res = await fetch(`/api/decline/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` }
     });
@@ -177,7 +177,7 @@ async function declineItem(id) {
 
 async function approveClaim(id) {
   try {
-    const res = await fetch(`http://localhost:4000/api/claims/approve/${id}`, {
+    const res = await fetch(`/api/claims/approve/${id}`, {
       method: "PUT",
       headers: { 
         "Authorization": `Bearer ${token}`,
@@ -202,7 +202,7 @@ async function approveClaim(id) {
 async function declineClaim(id) {
   if(!confirm("Are you sure you want to deny this claim?")) return;
   try {
-    const res = await fetch(`http://localhost:4000/api/claims/decline/${id}`, {
+    const res = await fetch(`/api/claims/decline/${id}`, {
       method: "PUT", 
       headers: { Authorization: `Bearer ${token}` }
     });
