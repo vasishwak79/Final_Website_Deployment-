@@ -64,7 +64,7 @@ if (claimForm) {
     };
 
     try {
-      const res = await fetch("http://localhost:4000/api/claims", {
+      const res = await fetch("/api/claims", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -102,3 +102,4 @@ if (navToggle && navMenu) {
     navMenu.classList.toggle("open");
   });
 }
+
