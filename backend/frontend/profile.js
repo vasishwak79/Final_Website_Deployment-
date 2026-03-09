@@ -1,19 +1,22 @@
-const API_URL = "http://localhost:4000/api";
-
+const API_URL = "/api";
 const username = localStorage.getItem("username");
 const token = localStorage.getItem("userToken");
 
+
 /* ====================== PAGE PROTECTION ======================== */
+
 if (!username || !token) {
   alert("You must be logged in to view your profile.");
   window.location.href = "login.html";
 }
 
-
 document.getElementById("profile-name").textContent = `${username}'s Profile`;
 
 const approvedContainer = document.getElementById("approved-items");
 const declinedContainer = document.getElementById("declined-items");
+
+
+/* ====================== FETCH USER CLAIMS ======================== */
 
 fetch(`${API_URL}/user/claims/${username}`)
   .then(res => res.json())
@@ -30,6 +33,8 @@ fetch(`${API_URL}/user/claims/${username}`)
   });
 
 
+/* ====================== RENDER ITEMS ======================== */
+
 function renderItems(items, container, emptyMsg) {
   if (items.length === 0) {
     container.innerHTML = `<p class="empty-text">${emptyMsg}</p>`;
@@ -40,9 +45,9 @@ function renderItems(items, container, emptyMsg) {
     <div class="claim-card" data-id="${item.id}">
       <h3>${item.title}</h3>
 
-      ${item.photo ? 
-        `<img src="http://localhost:4000${item.photo}" alt="${item.title}" />` : 
-        `<p><em>No Image Available</em></p>`
+      ${item.photo
+        ? `<img src="${item.photo}" alt="${item.title}" />`
+        : `<p><em>No Image Available</em></p>`
       }
 
       <p><strong>Location:</strong> ${item.location}</p>
@@ -54,25 +59,23 @@ function renderItems(items, container, emptyMsg) {
         </span>
       </p>
 
-      <button
-        class="claim-delete-btn ${item.status}"
-        data-claim-id="${item.id}">
+      <button class="claim-delete-btn ${item.status}" data-claim-id="${item.id}">
         ${item.status === "approved" ? "Delete Claimed Item" : "Delete Claim"}
       </button>
     </div>
   `).join("");
-
 }
+
+
+/* ====================== DELETE CLAIM ======================== */
 
 let isDeleting = false;
 
 document.addEventListener("click", async (e) => {
   const btn = e.target.closest(".claim-delete-btn");
-  if (!btn) return;
+  if (!btn || isDeleting) return;
 
-  if (isDeleting) return;
   isDeleting = true;
-
   const claimId = btn.dataset.claimId;
 
   if (!confirm("Are you sure you want to delete this claim?")) {
@@ -103,7 +106,9 @@ document.addEventListener("click", async (e) => {
   }
 });
 
-/* ===================== USER DISPLAY + LOGOUT ===================== */
+
+/* ====================== USER DISPLAY + LOGOUT ======================== */
+
 const userToken = localStorage.getItem("userToken");
 const userMenu = document.getElementById("user-menu");
 
@@ -124,7 +129,9 @@ if (logoutBtn) {
   });
 }
 
+
 /* ====================== MOBILE NAVIGATION MENU ======================== */
+
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-right");
 
