@@ -11,7 +11,7 @@ document.getElementById("signupForm").addEventListener("submit", async function 
   const msg = document.getElementById("msg");
 
   try {
-    const res = await fetch("http://localhost:4000/api/user/signup", {
+    const res = await fetch("/api/user/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password })
@@ -82,3 +82,4 @@ if (navToggle && navMenu) {
     navMenu.classList.toggle("open");
   });
 }
+
