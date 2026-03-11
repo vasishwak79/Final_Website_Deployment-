@@ -2,7 +2,7 @@ body {
   font-family: "League Spartan", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #1d4e89;
+  background-color: rgba(173, 166, 153, 0.95);
 }
 
 body.admin-page {
@@ -202,3 +202,4 @@ body.admin-page {
     width: 100%;
   }
 }
+
