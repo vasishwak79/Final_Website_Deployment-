@@ -1,6 +1,6 @@
 body {
     font-family: "League Spartan", sans-serif;
-    background-color: rgba(173, 166, 153, 0.95); /* fallback background */
+    background-color: #1d4e89; /* fallback background */
     margin: 0;
     padding: 0;
 }
@@ -66,3 +66,24 @@ footer {
   color: #555;
 }
 
+@media (max-width: 480px) {
+  body.citations-page {
+    background-size: cover;
+    background-attachment: scroll;
+  }
+
+  .container {
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 0;
+  }
+
+  .container {
+    /* Center the glass box with small side gaps */
+    width: 92%; 
+    margin: 20px auto; 
+    padding: 25px 15px;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
+    height: auto; /* Allow box to grow with text */
+  }
+  }
