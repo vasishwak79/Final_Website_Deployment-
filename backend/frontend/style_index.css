@@ -1,466 +1,179 @@
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-    font-family: "League Spartan", sans-serif;
-    background-image: url('pexels-nietjuhart-1906440.jpg') !important;
-    background-size: 100% auto;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-color: rgba(173, 166, 153, 0.95); /* fallback background */
-    margin: 0;
-    padding: 0; 
-}
-
-/* Semi-transparent central container */
-.container {
-    max-width: 900px;
-    margin: 80px auto; /* centers horizontally */
-    padding: 40px;
-    background-color: rgba(210, 202, 186, 0.641); /* semi-transparent white-ish color*/
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-/* Main Section */
-.home-container {
-    height: 100vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-    color: white;
-    position: relative;
-}
-
-/* Dark overlay for readability */
-.home-container::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-}
-
-/* Keep content above overlay */
-.home-container .home {
-    position: relative;
-    z-index: 2;
-    max-width: 850px;
-    padding: 20px;
-}
-
-.home {
-    max-width: 900px;
-    height: auto;
-    margin: 80px auto; /* centers horizontally */
-    padding: 40px;
-    background-color: rgba(210, 202, 186, 0.621); /* semi-transparent white-ish color*/
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.home-container .home-title-highlight,
-.home-container .home-title {
-    color: #4F7F8A;
-}
-
-/* Make text white in first section */
-.home-container .home-subtitle,
-.home-container .home .scroll-indicator{
-    color: black;
-}
-
-.fade-section {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.home {
-    text-align: center;
-}
-
-.home-image {
-    max-width: 300px;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.home-title {
-    font-size: 40px;
-    color: #000000;
-    margin-bottom: 15px;
-}
-
-.home-title-highlight {
-    font-size: 40px;
-    color: #2F7F6F;
-    margin-bottom: 15px;
-}
-
-.home-container .home-subtitle {
-    font-size: 21px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    line-height: 1.6;
-    letter-spacing: 0.5px; 
-    padding: 0 10px;
-}
-
-/* Buttons in Home Section */
-.home-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.home-btn {
-    text-decoration: none;
-    font-weight: bold;
-    background-color: #4F7F8A;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    transition: background-color 0.3s;
-}
-
-.home-btn:hover {
-    font-weight: bold;
-    background-color: #3F6770;
-}
-
-.home-title-1 {
-    font-size: 15px;
-    color: #000000;
-    margin-bottom: 15px;
-}
-
-.link1 {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 15px;
-    color: #2F7F6F;
-    margin-bottom: 15px;
-    text-decoration: underline;
-}
-
-.home1 {
-    margin-top: 50px;
-}
-
-/* Grid layout for recent items */
-.item-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 40px;
-  margin-top: 30px;
-}
-
-/* Individual item cards */
-.item {
-  background: rgba(255, 255, 255, 0.285); 
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 15px;
-  padding: 20px;
-  width: 220px; /* Fixed width makes them look like individual tiles */
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, background 0.2s ease;
-  word-break: break-all;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.274);
-}
-
-.item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
-}
-
-/* Item image */
-.item img {
-  color: #000000;
-  width: 100%;
-  max-height: 160px;
-  object-fit: contain;
-  margin-bottom: 12px;
-  border-radius: 8px;
-}
-
-/* Item title */
-.item h3 {
-  color: #000000;
-  margin: 10px 0 6px;
-  font-size: 1.25rem;
-}
-
-/* Item description */
-.item p {
-  color: #000000;
-  font-size: 0.95rem;
-  margin-bottom: 10px;
-}
-
-/* Location text */
-.item small {
-  color: #000000;
-  font-size: 0.85rem;
-  margin-bottom: 15px;
-}
-
-/* Claim button */
-.item button {
-  background-color: #4F7F8A;
-  font-family: 'Montserrat', Arial, sans-serif;
-  color: white;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 10px;
-  transition: background 0.2s;
-}
-
-.item button:hover {
-  background-color: #3F6770;
-}
-
-#backToTop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 9999 !important; /* Ensure it is above EVERYTHING */
+<!DOCTYPE html>
+<html lang="en">
   
-  /* Visuals */
-  background-color: #4F7F8A;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+<head>
+  <!-- Google Fonts: League Spartan for headings, Montserrat for body text -->
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Lost & Found | Home</title>
+  <!-- General styles shared across all pages, then home-specific styles -->
+  <link rel="stylesheet" href="style_general.css">
+  <link rel="stylesheet" href="style_index.css">
+  <!-- Deferred so the script runs after the DOM is fully loaded -->
+  <script src="script.js" defer></script>
+</head>
 
-  /* Force it to stay hidden initially */
-  display: block; /* Keep as block but hide with opacity */
-  opacity: 0 !important;
-  visibility: hidden !important;
-  transform: translateY(20px);
-  transition: all 0.4s ease-in-out;
-}
+<body class="home-page">
 
-/* Force it to show when the class is added */
-#backToTop.show {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateY(0) !important;
-}
+  <!-- ========================
+       HEADER / NAVIGATION
+       Persistent across all pages
+  ======================== -->
+  <header>
+    <h1 class="site-title">School Lost & Found</h1>
 
-#backToTop:hover {
-  background-color: #3F6770;
-  transform: scale(1.05);   
-}
+    <!-- Hamburger button shown on mobile screens -->
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
 
-footer {
-    width: 100%;
-    padding: 20px 0;
-    margin-top: 50px; /* Space between the container and footer */
-    background-color: rgba(0, 0, 0, 0.7); /* Dark glass footer */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-}
+    <nav class="nav-right">
+      <a href="index.html" class="nav-btn active">Home</a>
+      <a href="admin.html" class="nav-btn">Admin</a>
 
-.fake-copy {
-    font-size: 1.0rem;
-    margin-bottom: 5px;
-    margin-left: 20px;
-    opacity: 0.8;
-    justify-content: left;
-}
+      <!-- User dropdown — hidden by default, shown by script.js when logged in -->
+      <div id="user-menu" class="user-menu hidden">
+        <button class="user-btn">
+          <!-- Username is injected here dynamically by script.js -->
+          <span id="username-display">User</span> ▼
+        </button>
 
-/* FAQ SECTION  */
-.faq-section {
-  margin-top: 60px;
-  text-align: left;
-}
+        <div class="dropdown-content">
+          <a href="profile.html" id="profileLink">Profile</a>
+          <a href="login.html">User Login</a>
+          <a href="#" id="logoutBtn">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-.faq-title {
-  font-size: 32px;
-  margin-bottom: 25px;
-  text-align: center;
-  color: #000;
-}
+  <!-- ========================
+       MAIN CONTENT
+  ======================== -->
+  <main>
 
-.faq-item {
-  margin-bottom: 12px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.274);
-}
+    <!-- Hero section: welcome message and call-to-action buttons -->
+    <section class="home-container">
+      <div class="home">
+        
+        <h2>
+          <span class="home-title">Welcome to the</span>
+          <!-- Highlighted portion of the title uses a different color via CSS -->
+          <span class="home-title-highlight">School Lost and Found Website!</span>
+        </h2>
 
-/* Question layout */
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  text-align: left;
-  background: rgba(255,255,255,0.35);
-  backdrop-filter: blur(12px);
-  border: none;
-  padding: 18px 22px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #2F7F6F;
-  cursor: pointer;
-  transition: background 0.25s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.274);
-}
+        <p class="home-subtitle">
+          Every year, students misplace water bottles, hoodies, phones, calculators, and other important belongings. 
+          Our School Lost and Found website makes it easy to reconnect students with their items quickly and securely.
+          Whether you've found something or lost something, this platform allows you to report items, search listings,
+          and submit claims — all in one place.
+        </p>
 
-/* Arrow */
-.faq-arrow {
-  font-size: 18px;
-  transition: transform 0.35s ease;
-}
+        <!-- Primary action buttons directing users to report or search for items -->
+        <div class="home-buttons">
+          <a href="upload.html" class="home-btn">Report an Item</a>
+          <a href="items.html" class="home-btn">Search for an Item</a>
+        </div>
 
-/* Rotate when open */
-.faq-item.active .faq-arrow {
-  transform: rotate(180deg);
-}
+        <!-- Prompts the user to scroll down to see recent items -->
+        <div class="scroll-indicator">↓ Scroll to View Items ↓</div>
 
-/* Better animation */
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  background: rgba(255,255,255,0.2);
-  padding: 0 20px;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-}
-.faq-item.active .faq-answer {
-  max-height: 250px;
-  padding: 12px 20px 18px;
-}
+      </div>
+    </section>
+
+    <!-- ========================
+         RECENTLY ADDED ITEMS
+         Cards are generated and injected here by script.js at runtime
+    ======================== -->
+    <div class="container recent-container fade-section">
+      <h2 class="section-title">Recently Added Items</h2>
+      <!-- Empty on load — script.js fetches and renders item cards into this grid -->
+      <div id="recent-items" class="item-grid"></div>
+    </div>
 
 
-/* MOBILE */
-@media (max-width: 768px) {
+    <!-- ========================
+         FAQ + LOGIN PROMPTS
+    ======================== -->
+    <div class="container faq-container fade-section">
 
-  body.home-page {
-    background-size: cover;
-    background-attachment: scroll;
-  }
+      <!-- Accordion-style FAQ — open/close behavior handled by script.js -->
+      <section class="faq-section">
 
-  .home-container {
-    height: auto;
-    min-height: 100vh;
-    padding: 40px 0;
-  }
+        <h2 class="faq-title">Frequently Asked Questions</h2>
 
-  .container, .home {
-    /* Center the glass box with small side gaps */
-    width: 92%; 
-    margin: 20px auto; 
-    padding: 25px 15px;
-    box-sizing: border-box; /* Ensures padding doesn't add to width */
-    height: auto; /* Allow box to grow with text */
-  }
-  
-  .home {
-    margin-right: 10px;
-    margin-left: 10px;
-    max-width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+        <!-- Each faq-item has a button that toggles the answer below it -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I report a found item?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Click "Report an Item" on the home page and fill out the form. An administrator will review and approve the listing before it appears publicly.</p>
+          </div>
+        </div>
 
-  .home-title,
-  .home-title-highlight {
-    font-size: 28px;
-  }
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I claim an item?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Find your item on the search page, click "Claim", and complete the verification form. Staff will review your claim before approval.</p>
+          </div>
+        </div>
 
-  .home-subtitle {
-    font-size: 16px;
-  }
+        <div class="faq-item">
+          <button class="faq-question">
+            Why can't I see my uploaded item?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>All items must be approved by school administrators first to prevent spam or incorrect claims. Approval may take some time.</p>
+          </div>
+        </div>
 
-  .home-buttons {
-    flex-direction: column;
-    gap: 15px;
-    width: auto;
-  }
+        <div class="faq-item">
+          <button class="faq-question">
+            What happens after my claim is approved?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>You will be contacted by staff with instructions on where and when to retrieve your item from the school's lost and found office.</p>
+          </div>
+        </div>
 
-  .home-btn {
-    width: 100%;
-    text-align: center;
-    padding: 14px;
-  }
+      </section>
 
-  .item-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+      <!-- Quick links for users who need to log in, sign up, or access admin -->
+      <section class="home1">
+        <p class="home-title-1">
+          Log into your account by clicking at the user button in the Navigation Menu or
+          <a href="login.html" class="link1">Click Here to Login.</a>
+        </p>
 
-  .item {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.274);
-  }
+        <p class="home-title-1">
+          New to the website?
+          <a href="signup.html" class="link1">Click Here to Sign Up.</a>
+        </p>
 
-    .faq-question {
-    font-size: 17px;
-    padding: 20px;
-  }
+        <p class="home-title-1">
+          Admins, login using the Admin button in the Navigation bar or 
+          <a href="admin_login.html" class="link1">Login by Clicking Here.</a>
+        </p>
 
-  .faq-answer p {
-    font-size: 15px;
-    line-height: 1.5;
-  }
+      </section>
 
-  .faq-question:hover {
-    background: rgba(255,255,255,0.55);
-  }
+    </div>
 
-  .faq-title {
-    font-size: 26px;
-  }
+  </main>
 
-  .faq-item {
-    margin-bottom: 16px;
-  }
+  <!-- Fixed button that appears after scrolling down, returns user to top of page -->
+  <button id="backToTop" title="Go to top">Back to the top ↑</button>
 
-  footer {
-    text-align: center;
-  }
+  <footer>
+    <p class="fake-copy">© 2025–2026 FBLA Website Coding & Development Project | Alliance Academy of Innovation</p>
+    <a href="citations.html" class="footer-link">Citations</a>
+  </footer>
 
-  .fake-copy {
-    margin-left: 0;
-  }
-}
+</body>
+</html>
