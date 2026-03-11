@@ -1,6 +1,6 @@
 body {
     font-family: "League Spartan", sans-serif;
-    background-color: #1d4e89; /* fallback background */
+    background-color: rgba(173, 166, 153, 0.95); /* fallback background */
     margin: 0;
     padding: 0;
 }
@@ -157,3 +157,4 @@ body.login-page {
     font-size: 0.95rem;
   }
 }
+
