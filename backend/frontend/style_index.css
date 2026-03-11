@@ -72,13 +72,13 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.home-container .home-title-highlight{
+.home-container .home-title-highlight,
+.home-container .home-title {
     color: #4F7F8A;
 }
 
 /* Make text white in first section */
-.home-container .home-title,
-.home-container .home-subtitle 
+.home-container .home-subtitle,
 .home-container .home .scroll-indicator{
     color: black;
 }
@@ -114,12 +114,10 @@ body {
     font-size: 40px;
     color: #2F7F6F;
     margin-bottom: 15px;
-    text-decoration: underline;
 }
 
 .home-container .home-subtitle {
     font-size: 21px;
-    color: #2F7F6F;
     margin-top: 50px;
     margin-bottom: 50px;
     line-height: 1.6;
